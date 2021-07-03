@@ -1,0 +1,35 @@
+site_name: GDP Catalog
+
+docs_dir: 'docs'
+# Theme
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    
+# Navigation
+nav:
+    - はじめに: 
+      - about the site: index.md
+    - 会員DB:
+      - 会員情報マスタ: member/memberprofile.md
+      - 会員マスタ: member/members.md
+  
+markdown_extensions:
+    - admonition
+    - codehilite:
+        linenums: true
+        guess_lang: false
+        use_pygments: false
+        noclasses: true
+    - toc:
+        permalink: true
+
+plugins:
+  - macros
+  - search:
+      lang: ja
+
+
+# Copyright
+copyright: 'Copyright tj'
