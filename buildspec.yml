@@ -8,4 +8,5 @@ phases:
       - pip install mkdocs-material
   build:
     commands:
+      - cd ./metadata/
       - mkdocs gh-deploy
