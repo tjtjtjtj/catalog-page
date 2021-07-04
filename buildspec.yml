@@ -1,9 +1,11 @@
 version: 0.2
 
 phases:
-  pre_build:
+  install:
     commands:
-      - echo 'test'
+      - pip install mkdocs
+      - pip install mkdocs-macros-plugin
+      - pip install mkdocs-material
   build:
     commands:
-      - pwd
+      - mkdocs gh-deploy
