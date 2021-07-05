@@ -9,6 +9,7 @@ phases:
       - pip install mkdocs-material
   build:
     commands:
+      - ls -ltra
       - git status
       - git logs
       - ls -ltr
