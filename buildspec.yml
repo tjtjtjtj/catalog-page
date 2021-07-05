@@ -9,5 +9,6 @@ phases:
       - pip install mkdocs-material
   build:
     commands:
+      - git remote -v
       - cd ./metadata/
       - mkdocs gh-deploy
