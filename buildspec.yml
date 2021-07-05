@@ -3,6 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
+      - printenv
       - pip install mkdocs
       - pip install mkdocs-macros-plugin
       - pip install mkdocs-material

@@ -1,4 +1,5 @@
 site_name: GDP Catalog
+site_url: ''
 
 docs_dir: 'docs'
 # Theme
