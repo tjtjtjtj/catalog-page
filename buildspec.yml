@@ -10,4 +10,6 @@ phases:
   build:
     commands:
       - cd ./metadata/
-      - mkdocs gh-deploy -v --remote-name https://${GH_TOKEN}@https://github.com/tjtjtjtj/catalog-page.git -b gh-pages --force
+      - git remote add gh-token "https://${GH_TOKEN}@https://github.com/tjtjtjtj/catalog-page.git"
+      - git fetch gh-token && git fetch gh-token gh-pages:gh-pages
+      - cd docs && mkdocs gh-deploy -v --clean --remote-name gh-token -b gh-pages --force
