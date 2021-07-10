@@ -1,4 +1,4 @@
-site_name: GDP Catalog
+site_name: Data Catalog
 site_url: ''
 
 docs_dir: 'docs'
@@ -33,4 +33,4 @@ plugins:
 
 
 # Copyright
-copyright: 'Copyright tj'
+copyright: 'Copyright DataManagementT'
