@@ -13,6 +13,5 @@ phases:
       - mkdir tmp && cd tmp
       - git clone "https://${GH_TOKEN}@github.com/tjtjtjtj/catalog-page.git" 
       - cd catalog-page/metadata
-      - cd ./metadata/
       - git remote add gh-token "https://${GH_TOKEN}@github.com/tjtjtjtj/catalog-page.git"
       - mkdocs gh-deploy -v --clean --remote-name gh-token -b gh-pages --force
