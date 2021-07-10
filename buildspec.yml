@@ -12,6 +12,7 @@ phases:
       - ls -ltra
       - mkdir tmp && cd tmp
       - git clone "https://${GH_TOKEN}@github.com/tjtjtjtj/catalog-page.git" 
+      - cd catalog-page
       - git status
       - git logs
       - ls -ltr
