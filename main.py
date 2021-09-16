@@ -1,23 +1,20 @@
-import os,re
+import os,glob
 import boto3
-import pprint
 
 client = boto3.client('glue')
 
-path = './catalog/docs/member'
+path = './metadata/docs/'
+target_file = '_column.md'
 
-table_list=os.listdir(path)
+for f in glob.glob(f'{path}*/*{target_file}'):
+    database_name = os.path.split(f)[0].replace(path,'')
+    table_name = os.path.split(f)[1].replace(target_file,'')
 
-for t in table_list:
-    if re.search(r'^(?!.*_column$).*$',t):
-        table_name = t.rstrip('.md')
+    res = client.get_table(DatabaseName=database_name, Name=table_name)
+    columns = res['Table']['StorageDescriptor']['Columns']
 
-        # todo: functionにする
-        res = client.get_table(DatabaseName='member',Name=table_name)
-        columns = res['Table']['StorageDescriptor']['Columns']
-
-        with open(path + '/' + table_name + '_column.md', mode='w') as f:
-            f.write('|Name|Comment|\n')
-            f.write('|---|---|\n')
-            for i in columns:
-                f.write(f'|{i["Name"]}|{i["Comment"]}|\n')
+    with open(path + database_name + '/' + table_name + target_file, mode='w') as f:
+        f.write('|Name|Comment|\n')
+        f.write('|---|---|\n')
+        for i in columns:
+            f.write(f'|{i["Name"]}|{i["Comment"]}|\n')
